@@ -15,6 +15,7 @@ const bundle=fs.readFileSync(path.resolve(__dirname,'../dist/server.bundle.js'),
 const render=require('vue-server-renderer').createBundleRenderer(bundle,{
     template:fs.readFileSync(path.resolve(__dirname,'../dist/index.ssr.html'),'utf-8')
 })
+
 backendRouter.get('/index',(ctx,next)=>{
     render.renderToString((err,html)=>{
         if(err){

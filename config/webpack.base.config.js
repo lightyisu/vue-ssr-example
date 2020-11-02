@@ -15,7 +15,7 @@ module.exports = {
                 use: ['vue-style-loader', {
                     loader:"css-loader",
                     options:{
-                        esModule:false
+                        esModule:false //为了适配不兼容的vue-style-loader
                     }
                 }]
             },
