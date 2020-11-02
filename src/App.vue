@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style>
-body{
-    color: red;
+div{
+  color: red;
 }
 </style>

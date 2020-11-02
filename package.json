@@ -8,9 +8,7 @@
     "koa-router": "^9.4.0",
     "koa-static": "^5.0.0",
     "vue": "^2.6.12",
-    "vue-server-renderer": "^2.6.12",
-    "vue-template-compiler": "^2.6.12",
-    "webpack": "^5.3.2"
+    "vue-server-renderer": "^2.6.12"
   },
   "devDependencies": {
     "css-loader": "^5.0.0",
@@ -20,6 +18,8 @@
     "url-loader": "^4.1.1",
     "vue-loader": "^15.9.4",
     "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5.3.2",
     "webpack-cli": "^4.1.0",
     "webpack-merge": "^5.3.0"
   },
@@ -27,7 +27,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:client": "webpack --config config/webpack.client.config.js",
     "build:server": "webpack --config config/webpack.server.config.js",
-    "server":"node server/server.js"
+    "server": "node server/server.js",
+    "build": "webpack --config config/webpack.client.config.js&&webpack --config config/webpack.server.config.js"
   },
   "keywords": [],
   "author": "",

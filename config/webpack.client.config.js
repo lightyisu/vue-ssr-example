@@ -6,10 +6,5 @@ module.exports=merge(baseConfig,{
     entry:{
         client:path.resolve(__dirname,'../src/entry-client.js')
     },
-    plugins:[
-        new HtmlWebpackPlugin({
-            template:path.resolve(__dirname,'../src/index.html'),
-            filename:'index.html'
-        })
-    ]
+
 })
