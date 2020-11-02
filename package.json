@@ -8,7 +8,8 @@
     "koa-router": "^9.4.0",
     "koa-static": "^5.0.0",
     "vue": "^2.6.12",
-    "vue-server-renderer": "^2.6.12"
+    "vue-server-renderer": "^2.6.12",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "css-loader": "^5.0.0",
@@ -29,7 +30,8 @@
     "build:client": "webpack --config config/webpack.client.config.js",
     "build:server": "webpack --config config/webpack.server.config.js",
     "server": "node server/express-server.js",
-    "build": "webpack --config config/webpack.client.config.js&&webpack --config config/webpack.server.config.js"
+    "build": "webpack --config config/webpack.client.config.js&&webpack --config config/webpack.server.config.js",
+    "auto":"webpack --config config/webpack.client.config.js&&webpack --config config/webpack.server.config.js&&node server/express-server.js"
   },
   "keywords": [],
   "author": "",
