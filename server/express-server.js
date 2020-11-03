@@ -3,9 +3,12 @@ const app=express();
 const fs=require('fs');
 const path=require('path')
 
-const bundle=fs.readFileSync(path.resolve(__dirname,'../dist/server.bundle.js'),'utf-8');
+const bundle=require('../dist/vue-ssr-server-bundle.json');
+const clientManifest=require('../dist/vue-ssr-client-manifest.json');
 const renderer=require('vue-server-renderer').createBundleRenderer(bundle,{
-    template:fs.readFileSync(path.resolve(__dirname,'../dist/index.ssr.html'),'utf-8')
+    runInNewContext:false,
+    template:fs.readFileSync(path.resolve(__dirname,'../src/index.ssr.html'),'utf-8'),
+    clientManifest:clientManifest //通过MANIFEST清单为html模板最后添加客户端激活 使得不需要html-webpack-plugin注入客户端bundle
 })
 
 
