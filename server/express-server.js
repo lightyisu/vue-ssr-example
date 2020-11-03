@@ -12,8 +12,9 @@ const renderer=require('vue-server-renderer').createBundleRenderer(bundle,{
 })
 
 
-app.get('/index',(req,res)=>{
-        renderer.renderToString((err,html)=>{
+app.get('*',(req,res)=>{
+        const context={url:req.url}
+        renderer.renderToString(context,(err,html)=>{
             if(err) console.log(err)
             res.end(html)
         })

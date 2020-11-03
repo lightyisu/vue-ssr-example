@@ -2,7 +2,28 @@ import {createApp} from './app'
 export default context=>{
  return new Promise((resolve,reject)=>{
 
-    const {app,store,App} =createApp()
+    const {app,store,App,router} =createApp()
+   
+    router.push(context.url);
+    router.onReady(()=>{
+        const matchedComponents=router.getMatchedComponents();
+        console.log(context.url);
+        console.log(matchedComponents);
+        if(!matchedComponents.length){
+            return reject({code:404})
+        }
+        Promise.all(matchedComponents.map(component=>{
+            if(component.asyncData){
+                return component.asyncData({store})
+            }
+        })).then(()=>{
+            context.state=store.state;
+            resolve(app);
+        })
+    },reject)
+
+    /** 
+     * Normal without Router
     // APP就是暴露出来的.vue $options
     let components=App.components;
     let asyncDataPromiseSeq=[];
@@ -21,6 +42,7 @@ export default context=>{
         console.log(store.state)
         resolve(app);
     },reject)
+    **/
  })   
    
 }
