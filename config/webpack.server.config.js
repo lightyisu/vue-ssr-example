@@ -8,7 +8,7 @@ module.exports=merge(base,{
     entry:{
         server:path.resolve(__dirname,'../src/entry-server.js')
     },
-    externals:[nodeExternals()],
+    externals:[nodeExternals()],//必需的 不然报错 客户端代码不需要包含依赖
     output:{
         libraryTarget:'commonjs2'
     },
