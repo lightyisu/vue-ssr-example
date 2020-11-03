@@ -9,6 +9,7 @@ const renderer=require('vue-server-renderer').createBundleRenderer(bundle,{
     runInNewContext:false,
     template:fs.readFileSync(path.resolve(__dirname,'../src/index.ssr.html'),'utf-8'),
     clientManifest:clientManifest //通过MANIFEST清单为html模板最后添加客户端激活 使得不需要html-webpack-plugin注入客户端bundle
+    //mainifest清单还可以为异步懒加载路由提供资源提示resouce hint
 })
 
 app.use(express.static(path.resolve(__dirname,'../dist')))
